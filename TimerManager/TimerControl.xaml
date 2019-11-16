@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="TimerManager.TimerControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TimerManager"
+             mc:Ignorable="d" 
+             d:DesignHeight="60" d:DesignWidth="350">
+    <Grid Background="{StaticResource ForegroundLightBrush}">
+            <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Border Background="Red" Width="5"/>
+        <StackPanel Grid.Column="1">
+            <Image Grid.Column="1" Grid.Row="0" Source="/Images/timer.png" Margin="1 3" Height="28" VerticalAlignment="Center"/>
+            <Viewbox>
+                <TextBlock Grid.Column="1" Grid.Row="1" x:Name="TimerNumber" Margin="1 1" FontSize="20" Text="{Binding Index, FallbackValue = 999}" VerticalAlignment="Center" HorizontalAlignment="Center" />
+            </Viewbox>
+        </StackPanel>
+        <Viewbox Grid.Column="2">
+            <TextBlock  x:Name="Time" Margin="1 1" Text="{Binding Time}" VerticalAlignment="Center" HorizontalAlignment="Center" />
+        </Viewbox>
+        <StackPanel Grid.Column="3">
+            <Button Style="{StaticResource TimerControlButton}" FontSize="30" Content="■" Width="30" Height="30"  Foreground="{StaticResource LogoBlueBrush}" />
+            <Button Style="{StaticResource TimerControlButton}" FontSize="30" FontFamily="LatoBold"  Content="||" Width="30" Height="30"  Foreground="{StaticResource LogoBlueBrush}" />
+        </StackPanel>
+    </Grid>
+</UserControl>
