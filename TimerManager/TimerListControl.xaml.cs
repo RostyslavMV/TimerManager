@@ -18,7 +18,7 @@ namespace TimerManager
     /// <summary>
     /// Interaction logic for TimerListControl.xaml
     /// </summary>
-    public partial class TimerListControl : UserControl
+    public partial class TimerListControl : ListBox
     {
         public TimerListControl()
         {

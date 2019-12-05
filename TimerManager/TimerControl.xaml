@@ -5,7 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TimerManager"
              mc:Ignorable="d" 
-             d:DesignHeight="60" d:DesignWidth="350">
+             Height="60"
+             d:DesignWidth="350">
     <Grid Background="{StaticResource ForegroundLightBrush}">
             <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -21,11 +22,13 @@
             </Viewbox>
         </StackPanel>
         <Viewbox Grid.Column="2">
-            <TextBlock  x:Name="Time" Margin="1 1" Text="{Binding Time}" VerticalAlignment="Center" HorizontalAlignment="Center" />
+            <TextBlock  x:Name="Time" Margin="1 1" Text="{Binding Current, StringFormat={}{0:hh}:{0:mm}:{0:ss}}" VerticalAlignment="Center" HorizontalAlignment="Center" />
         </Viewbox>
         <StackPanel Grid.Column="3">
-            <Button Style="{StaticResource TimerControlButton}" FontSize="30" Content="■" Width="30" Height="30"  Foreground="{StaticResource LogoBlueBrush}" />
-            <Button Style="{StaticResource TimerControlButton}" FontSize="30" FontFamily="LatoBold"  Content="||" Width="30" Height="30"  Foreground="{StaticResource LogoBlueBrush}" />
+            <Button x:Name = "StartButton" Style="{StaticResource TimerControlButton}" Width="30" Height="30"  Click="StartButton_Click" >
+                <Path Data="M0,0 L0,2 1,1 z" Fill="Red" Stretch="Uniform" Margin="5"/>
+            </Button>
+            <Button x:Name="PauseButton" Style="{StaticResource TimerControlButton}" FontSize="30" FontFamily="LatoBold"  Content="||" Width="30" Height="30" Click="PauseButton_Click" />
         </StackPanel>
     </Grid>
 </UserControl>

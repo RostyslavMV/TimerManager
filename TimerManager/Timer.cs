@@ -14,9 +14,11 @@ namespace TimerManager
 
         #region Public Properties
 
+        public int Index { get; set; }
+
         public DateTime Start { get; set; }
 
-        public TimeSpan Total { get; set; } = new TimeSpan(0, 0, 15);
+        public TimeSpan Total { get; set; }
 
         private TimeSpan current;
 
@@ -36,30 +38,24 @@ namespace TimerManager
 
         public TimeSpan End = new TimeSpan(0, 0, 0);
 
-        bool Elapsed => Current < End;
+        bool Elapsed => Current <= End;
 
         public bool IsTicking { get; set; } = false;
         #endregion
 
         #region Constructors
 
-        /// <summary>
-        /// Default constructor
-        /// </summary>
-        public Timer()
-        {
-            Start = DateTime.Now;
-        }
-
+        
         /// <summary>
         /// Constructor with time string as parameter
         /// </summary>
         /// <param name="Time"></param>
-        public Timer(TimeSpan value)
+        public Timer(TimeSpan total, int index)
         {
-            Value = value;
+            Total = new TimeSpan(0, 0, 15);
             Start = DateTime.Now;
-
+            current = Total;
+            Index = index;
         }
 
         #endregion
@@ -98,7 +94,13 @@ namespace TimerManager
         public void Update()
         {
             if (IsTicking && !Elapsed)
-                Current = Total - Loop;
+            {
+                if (Total > Loop)
+                    Current = Total - Loop;
+                else
+                    Current = new TimeSpan(0, 0, 0);
+            }
+               
         }
 
         public TimeSpan StringToTimeSpan(string Time)

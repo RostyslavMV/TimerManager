@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Images\Logo\icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -58,6 +61,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Timer.cs" />
+    <Compile Include="TimerCollection.cs" />
     <Compile Include="TimerControl.xaml.cs">
       <DependentUpon>TimerControl.xaml</DependentUpon>
     </Compile>
@@ -136,6 +140,17 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="NewFolder1\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Logo\icon.ico" />
+    <Resource Include="Images\Logo\logo-big.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\add-timer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\delete-timer.png" />
+    <Resource Include="Images\see-timer.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -5,8 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TimerManager"
         mc:Ignorable="d"
+        Icon="/Images/Logo/icon.ico"
+        RenderOptions.BitmapScalingMode="HighQuality"
+        Background="{StaticResource BackgroundLightBrush}"
         Title="MainWindow" Height="450" Width="800">
+    <!-- Main Grid -->
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="350"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <local:TimerListControl Grid.Row="1" x:Name="list"/>
+        <!-- Buttons Grid -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Style="{StaticResource MainWindowsButton}" >
+                <Image Source="/Images/add-timer.png" Margin="3" />
+            </Button>
+            <Button Grid.Column ="1" Style="{StaticResource MainWindowsButton}">
+                <Image Source="/Images/see-timer.png" Margin="3"/>
+            </Button>
+            <Button Grid.Column ="2" Style="{StaticResource MainWindowsButton}">
+                <Image Source="/Images/delete-timer.png" Margin="3"/>
+            </Button>
+        </Grid>
     </Grid>
 </Window>
