@@ -8,7 +8,8 @@
         Icon="/Images/Logo/icon.ico"
         RenderOptions.BitmapScalingMode="HighQuality"
         Background="{StaticResource BackgroundLightBrush}"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Timer Manager"
+        Height="450" Width="800">
     <!-- Main Grid -->
     <Grid>
         <Grid.RowDefinitions>
