@@ -27,6 +27,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Button Style="{StaticResource MainWindowsButton}" >
                 <Image Source="/Images/add-timer.png" Margin="3" />
@@ -37,6 +38,9 @@
             <Button Grid.Column ="2" Style="{StaticResource MainWindowsButton}">
                 <Image Source="/Images/delete-timer.png" Margin="3"/>
             </Button>
+            <ToggleButton Background="White" BorderBrush="{StaticResource BackgroundLightBrush}" Grid.Column ="3">
+                <Image Source="/Images/mute.png" Margin="3" />
+            </ToggleButton>
         </Grid>
     </Grid>
 </Window>

@@ -152,5 +152,8 @@
     <Resource Include="Images\delete-timer.png" />
     <Resource Include="Images\see-timer.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\mute.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

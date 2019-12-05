@@ -22,7 +22,7 @@
             </Viewbox>
         </StackPanel>
         <Viewbox Grid.Column="2">
-            <TextBlock  x:Name="Time" Margin="1 1" Text="{Binding Current, StringFormat={}{0:hh}:{0:mm}:{0:ss}}" VerticalAlignment="Center" HorizontalAlignment="Center" />
+            <TextBlock  x:Name="Time" Margin="1 1" Text="{Binding Current, StringFormat={}{0:dd}:{0:hh}:{0:mm}:{0:ss}}" VerticalAlignment="Center" HorizontalAlignment="Center" />
         </Viewbox>
         <StackPanel Grid.Column="3">
             <Button x:Name = "StartButton" Style="{StaticResource TimerControlButton}" Width="30" Height="30"  Click="StartButton_Click" >

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Threading;
 
@@ -24,6 +25,14 @@ namespace TimerManager
         private void TimerTick(object sender, EventArgs e)
         {
             timers.Update();
+            foreach (Timer timer in timers.ToList())
+            {
+                if (timer.Elapsed)
+                {
+                    //timer.Ended();
+                    timers.Remove(timer);
+                }
+            }
         }
     }
 }

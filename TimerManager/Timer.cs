@@ -38,7 +38,7 @@ namespace TimerManager
 
         public TimeSpan End = new TimeSpan(0, 0, 0);
 
-        bool Elapsed => Current <= End;
+        public bool Elapsed => Total <= Loop;
 
         public bool IsTicking { get; set; } = false;
         #endregion
@@ -52,7 +52,7 @@ namespace TimerManager
         /// <param name="Time"></param>
         public Timer(TimeSpan total, int index)
         {
-            Total = new TimeSpan(0, 0, 15);
+            Total = total;
             Start = DateTime.Now;
             current = Total;
             Index = index;
