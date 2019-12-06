@@ -6,12 +6,13 @@
              xmlns:local="clr-namespace:TimerManager"
              mc:Ignorable="d"
              Background="{StaticResource ForegroundLightBrush}"
-             d:DesignHeight="430" d:DesignWidth="800">
+             d:DesignHeight="260" d:DesignWidth="800"
+             MinHeight="260">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
@@ -29,7 +30,10 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <ComboBox Margin="10" Height="30" />
+            <StackPanel>
+                <TextBlock Margin="10 0" FontSize="20" Text="Sound" />
+                <ComboBox Margin="10 0" Height="30" />
+            </StackPanel>
         </Grid>
     </Grid>
 </UserControl>

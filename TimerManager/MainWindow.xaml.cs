@@ -30,20 +30,21 @@ namespace TimerManager
             timers.Update();
             foreach (Timer timer in timers.ToList())
             {
-                if (timer.Elapsed&&!timer.DeleteButtonIsShowed)
+                if (timer.Elapsed && !timer.DeleteButtonIsShowed)
                 {
                     timer.DeleteButtonIsShowed = true;
                     timer.IsVisibleFromElapsed = true;
-                    Task.Run(() =>
-                    {
-                        MediaPlayer mediaPlayer = new MediaPlayer();
-                        mediaPlayer.Open(new Uri("../../Sounds/alarm-beep.mp3", UriKind.RelativeOrAbsolute));
-                        mediaPlayer.Volume = 1;
-                        mediaPlayer.Play();
-                        var result = MessageBox.Show("Timer " + timer.Index + " elapsed", "Timer manager", MessageBoxButton.OK, MessageBoxImage.Information);
-                        if (result == MessageBoxResult.OK)
-                            mediaPlayer.Stop();
-                    });
+                    if (!timers.DoNotDisturb)
+                        Task.Run(() =>
+                        {
+                            MediaPlayer mediaPlayer = new MediaPlayer();
+                            mediaPlayer.Open(new Uri("../../Sounds/alarm-beep.mp3", UriKind.RelativeOrAbsolute));
+                            mediaPlayer.Volume = 1;
+                            mediaPlayer.Play();
+                            var result = MessageBox.Show("Timer " + timer.Index + " elapsed", "Timer manager", MessageBoxButton.OK, MessageBoxImage.Information);
+                            if (result == MessageBoxResult.OK)
+                                mediaPlayer.Stop();
+                        });
                 }
             }
         }
@@ -54,9 +55,10 @@ namespace TimerManager
             //TODO fix
         }
 
-        private void DoNotDisturbButton_Checked(object sender, RoutedEventArgs e)
+        private void DoNotDisturbButton_Click(object sender, RoutedEventArgs e)
         {
-
+            if (timers.DoNotDisturb) timers.DoNotDisturb = false;
+            else timers.DoNotDisturb = true;
         }
 
         private void OpenTimer_Click(object sender, RoutedEventArgs e)

@@ -42,10 +42,10 @@
             <Button x:Name="DeleteButton" Grid.Column ="2" Style="{StaticResource MainWindowsButton}" Click="DeleteButton_Click">
                 <Image Source="/Images/delete-timer.png" Margin="3"/>
             </Button>
-            <ToggleButton x:Name="DoNotDisturbButton" Background="White" BorderBrush="{StaticResource BackgroundLightBrush}" Grid.Column ="3" Checked="DoNotDisturbButton_Checked">
+            <ToggleButton x:Name="DoNotDisturbButton" Background="White" BorderBrush="{StaticResource BackgroundLightBrush}" Grid.Column ="3" Click="DoNotDisturbButton_Click">
                 <Image Source="/Images/mute.png" Margin="3" />
             </ToggleButton>
         </Grid>
-        <local:TimerCreator VerticalAlignment="Top" Height="250" Grid.Column="1" Grid.Row="2" />
+        <local:TimerCreator VerticalAlignment="Top" Height="260" Grid.Column="1" Grid.Row="2" />
     </Grid>
 </Window>

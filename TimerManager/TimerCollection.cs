@@ -7,6 +7,8 @@ namespace TimerManager
     {
         public static int CurrentIndex = 1;
 
+        public bool DoNotDisturb { get; set; } = false;
+        
         public TimerCollection()
         {
             for (int i = 0; i < 10; i++)
