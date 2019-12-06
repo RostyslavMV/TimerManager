@@ -7,6 +7,24 @@
              mc:Ignorable="d" 
              Height="60"
              d:DesignWidth="350">
+    <UserControl.Resources>
+        <Style TargetType="TextBlock" x:Key="animated">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=IsVisibleFromElapsed}" Value="True">
+                    <DataTrigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ColorAnimation Storyboard.TargetProperty="Background.Color"
+                                From="White" To="Red" FillBehavior="Stop"
+                                BeginTime="0:0:0" Duration="0:0:0.3" RepeatBehavior="3"/>
+
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </DataTrigger.EnterActions>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
     <Grid x:Name="grid" Background="{StaticResource ForegroundLightBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -22,7 +40,7 @@
             </Viewbox>
         </StackPanel>
         <Viewbox Grid.Column="2">
-            <TextBlock  x:Name="Time" Margin="1 1" Text="{Binding Current, StringFormat={}{0:dd}:{0:hh}:{0:mm}:{0:ss}}" VerticalAlignment="Center" HorizontalAlignment="Center" />
+            <TextBlock  x:Name="Time" Margin="1 1" Text="{Binding Current, StringFormat={}{0:dd}:{0:hh}:{0:mm}:{0:ss}}" VerticalAlignment="Center" HorizontalAlignment="Center"  Style="{StaticResource animated}" Background="White"/>
         </Viewbox>
         <StackPanel Grid.Column="3">
             <Button x:Name = "StartButton" Style="{StaticResource TimerControlButton}" Width="30" Height="30"  Click="StartButton_Click"  Visibility="{Binding IsVisibleFromElapsed, Converter={StaticResource ElapsedToVisibilityConverter},ConverterParameter=null}">
