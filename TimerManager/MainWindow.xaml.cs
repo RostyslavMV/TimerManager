@@ -32,7 +32,7 @@ namespace TimerManager
             {
                 if (timer.Elapsed)
                 {
-                    
+                    timer.IsVisibleFromElapsed = false;
                     Task.Run(() =>
                     {
                         MediaPlayer mediaPlayer = new MediaPlayer();
@@ -52,7 +52,7 @@ namespace TimerManager
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            TimerList.Items.Remove(TimerList.SelectedItem);
+            //TimerList.Items.RemoveAt(TimerList)
             //TODO fix
         }
 

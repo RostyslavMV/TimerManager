@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace TimerManager
 {
@@ -40,12 +41,24 @@ namespace TimerManager
 
         public bool Elapsed => Current <= End;
 
+        private bool elapsed;
+        public bool IsVisibleFromElapsed
+        {
+            get => Elapsed;
+            set
+            {
+                elapsed = Elapsed;
+                PropertyChanged(this, new PropertyChangedEventArgs("IsVisibleFromElapsed"));
+            }
+        }
+
         public bool IsTicking { get; set; } = false;
+
         #endregion
 
         #region Constructors
 
-        
+
         /// <summary>
         /// Constructor with time string as parameter
         /// </summary>
