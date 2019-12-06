@@ -30,9 +30,10 @@ namespace TimerManager
             timers.Update();
             foreach (Timer timer in timers.ToList())
             {
-                if (timer.Elapsed)
+                if (timer.Elapsed&&!timer.DeleteButtonIsShowed)
                 {
-                    timer.IsVisibleFromElapsed = false;
+                    timer.DeleteButtonIsShowed = true;
+                    timer.IsVisibleFromElapsed = true;
                     Task.Run(() =>
                     {
                         MediaPlayer mediaPlayer = new MediaPlayer();
@@ -43,16 +44,13 @@ namespace TimerManager
                         if (result == MessageBoxResult.OK)
                             mediaPlayer.Stop();
                     });
-
-                    //timer.Ended();
-                    timers.Remove(timer);
                 }
             }
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            //TimerList.Items.RemoveAt(TimerList)
+            timers.Remove(TimerList.SelectedItem as Timer);
             //TODO fix
         }
 

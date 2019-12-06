@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace TimerManager
 {
-    class TimerCollection : Collection<Timer>
+    class TimerCollection : ObservableCollection<Timer>
     {
         public static int CurrentIndex = 1;
 
@@ -11,7 +11,9 @@ namespace TimerManager
         {
             for (int i = 0; i < 10; i++)
             {
-                Add(new Timer(new TimeSpan(0,0,0,5),CurrentIndex));
+                Timer newTimer = new Timer(new TimeSpan(0, 0, 0, 5), CurrentIndex);
+                Add(newTimer);
+                newTimer.parrentCollection = this;
                 CurrentIndex++;
             }
         }

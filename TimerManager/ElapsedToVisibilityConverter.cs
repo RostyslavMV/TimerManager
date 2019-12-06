@@ -11,7 +11,8 @@ namespace TimerManager
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (parameter.Equals(null)){
+            if (parameter != null)
+            {
                 if ((bool)value == true) return Visibility.Collapsed;
                 return Visibility.Visible;
             }

@@ -38,7 +38,7 @@ namespace TimerManager
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            ((ListBox)this.Parent).Items.Remove(this);
+            timer.parrentCollection.Remove(timer);
         }
     }
 }

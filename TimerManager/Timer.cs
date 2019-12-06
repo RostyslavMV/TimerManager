@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,9 @@ namespace TimerManager
         #endregion
 
         #region Public Properties
+
+        public Collection<Timer> parrentCollection;
+        public bool DeleteButtonIsShowed { get; set; } = false;
 
         public int Index { get; set; }
 
