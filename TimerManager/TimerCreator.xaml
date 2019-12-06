@@ -10,66 +10,65 @@
              MinHeight="250">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
-        <!-- Timer settings -->
-        <StackPanel>
-            <CheckBox Margin="10"  VerticalAlignment="Top" VerticalContentAlignment="Center" FontSize="20" Content="Timer"/>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <StackPanel>
-                    <TextBlock HorizontalAlignment="Center" Text="Days" FontSize="20" />
-                    <TextBox HorizontalContentAlignment="Center" FontSize="20" Margin="10 0 " />
-                </StackPanel>
-                <StackPanel Grid.Column ="1">
-                    <TextBlock HorizontalAlignment="Center" Text="Hours" FontSize="20" />
-                    <TextBox HorizontalContentAlignment="Center" FontSize="20" Margin="10 0" />
-                </StackPanel>
-                <StackPanel Grid.Column ="2">
-                    <TextBlock HorizontalAlignment="Center" Text="Minutes" FontSize="20" />
-                    <TextBox HorizontalContentAlignment="Center" FontSize="20" Margin="10 0" />
-                </StackPanel>
-                <StackPanel Grid.Column ="3">
-                    <TextBlock HorizontalAlignment="Center" Text="Seconds" FontSize="20" />
-                    <TextBox HorizontalContentAlignment="Center" FontSize="20" Margin="10 0" />
-                </StackPanel>
-            </Grid>
-        </StackPanel>
-        <!-- Alarm clock settings -->
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width= "Auto"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <StackPanel>
-                <CheckBox Margin="10 0" VerticalAlignment="Top" VerticalContentAlignment="Center" FontSize="20" Content="Alarm clock" />
-                <Viewbox Margin="10 0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30">
-                    <DatePicker Background="{DynamicResource LogoLigthBlueBrush}"  />
-                </Viewbox>
-            </StackPanel>
-            <StackPanel Grid.Column ="1">
-                <TextBlock HorizontalAlignment="Center" Text="Hours" FontSize="20" />
-                <TextBox HorizontalContentAlignment="Center" FontSize="20" Margin="10 0" />
-            </StackPanel>
-            <StackPanel Grid.Column ="2">
-                <TextBlock HorizontalAlignment="Center" Text="Minutes" FontSize="20" />
-                <TextBox HorizontalContentAlignment="Center" FontSize="20" Margin="10 0" />
-            </StackPanel>
-            <StackPanel Grid.Column ="3">
-                <TextBlock HorizontalAlignment="Center" Text="Seconds" FontSize="20" />
-                <TextBox HorizontalContentAlignment="Center" FontSize="20" Margin="10 0" />
-            </StackPanel>
-        </Grid>
+        <TabControl>
+            <!-- Timer settings -->
+            <TabItem FontSize="20" Header="Timer">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock HorizontalAlignment="Center" Text="Days" FontSize="20" />
+                        <TextBox HorizontalContentAlignment="Center" FontSize="30" Margin="10 0 " />
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Center" Grid.Column ="1">
+                        <TextBlock HorizontalAlignment="Center" Text="Hours" FontSize="20" />
+                        <TextBox HorizontalContentAlignment="Center" FontSize="30" Margin="10 0" />
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Center" Grid.Column ="2">
+                        <TextBlock HorizontalAlignment="Center" Text="Minutes" FontSize="20" />
+                        <TextBox HorizontalContentAlignment="Center" FontSize="30" Margin="10 0" />
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Center" Grid.Column ="3">
+                        <TextBlock HorizontalAlignment="Center" Text="Seconds" FontSize="20" />
+                        <TextBox HorizontalContentAlignment="Center" FontSize="30" Margin="10 0" />
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <!-- Alarm clock settings -->
+            <TabItem FontSize="20" Header="Alarm clock" >
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height ="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" >
+                        <TextBlock HorizontalAlignment="Center" Text="Hours" FontSize="20" />
+                        <TextBox HorizontalContentAlignment="Center" FontSize="30" Margin="10 0" />
+                    </StackPanel>
+                    <StackPanel Grid.Column ="1" Grid.Row="0">
+                        <TextBlock HorizontalAlignment="Center" Text="Minutes" FontSize="20" />
+                        <TextBox HorizontalContentAlignment="Center" FontSize="30" Margin="10 0" />
+                    </StackPanel>
+                    <StackPanel Grid.Column ="2" Grid.Row="0" >
+                        <TextBlock HorizontalAlignment="Center" Text="Seconds" FontSize="20" />
+                        <TextBox HorizontalContentAlignment="Center" FontSize="30" Margin="10 0" />
+                    </StackPanel>
+                    <DatePicker Grid.ColumnSpan="2" Grid.Row="1" Margin="20" FontSize="30"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
         <!-- Common settings -->
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
