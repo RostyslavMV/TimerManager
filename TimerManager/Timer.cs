@@ -38,7 +38,7 @@ namespace TimerManager
 
         public TimeSpan End = new TimeSpan(0, 0, 0);
 
-        public bool Elapsed => Total <= Loop;
+        public bool Elapsed => Current <= End;
 
         public bool IsTicking { get; set; } = false;
         #endregion

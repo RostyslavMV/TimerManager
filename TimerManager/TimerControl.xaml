@@ -7,8 +7,11 @@
              mc:Ignorable="d" 
              Height="60"
              d:DesignWidth="350">
+    <UserControl.Resources>
+        <local:ElapsedToVisibilityConverter x:Key="ElapsedToVisibilityConverter" />
+    </UserControl.Resources>
     <Grid Background="{StaticResource ForegroundLightBrush}">
-            <Grid.ColumnDefinitions>
+        <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
@@ -30,5 +33,9 @@
             </Button>
             <Button x:Name="PauseButton" Style="{StaticResource TimerControlButton}" FontSize="30" FontFamily="LatoBold"  Content="||" Width="30" Height="30" Click="PauseButton_Click" />
         </StackPanel>
+        <Button x:Name="DeleteButton" Style="{StaticResource TimerControlButton}" Grid.Column="3" Height ="30" Click="DeleteButton_Click">
+            <!--Visibility="{Binding IsVisibleFromElapsedProperty, Converter={x:Static ElapsedToVisibilityConverter.Instance}}"-->
+            <Image Source="/Images/delete-cross.png" />
+        </Button>
     </Grid>
 </UserControl>

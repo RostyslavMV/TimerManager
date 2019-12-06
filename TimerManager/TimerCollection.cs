@@ -11,7 +11,7 @@ namespace TimerManager
         {
             for (int i = 0; i < 10; i++)
             {
-                Add(new Timer(new TimeSpan(1,0,0,5),CurrentIndex));
+                Add(new Timer(new TimeSpan(0,0,0,5),CurrentIndex));
                 CurrentIndex++;
             }
         }

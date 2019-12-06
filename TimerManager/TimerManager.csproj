@@ -60,10 +60,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ElapsedToVisibilityConverter.cs" />
     <Compile Include="Timer.cs" />
     <Compile Include="TimerCollection.cs" />
     <Compile Include="TimerControl.xaml.cs">
       <DependentUpon>TimerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TimerCreator.xaml.cs">
+      <DependentUpon>TimerCreator.xaml</DependentUpon>
     </Compile>
     <Compile Include="TimerListControl.xaml.cs">
       <DependentUpon>TimerListControl.xaml</DependentUpon>
@@ -88,10 +92,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Styles\Fonts.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Styles\Texts.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -101,6 +101,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="TimerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TimerCreator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -138,9 +142,7 @@
   <ItemGroup>
     <Resource Include="Images\timer.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="NewFolder1\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\Logo\icon.ico" />
     <Resource Include="Images\Logo\logo-big.png" />
@@ -154,6 +156,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\mute.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\delete-cross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Sounds\alarm-beep.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

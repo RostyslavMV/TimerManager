@@ -26,6 +26,12 @@ namespace TimerManager
             InitializeComponent();
         }
 
+        public static readonly DependencyProperty IsVisibleFromElapsedProperty =
+        DependencyProperty.Register("IsVisibleFromElapsed", typeof(bool),
+        typeof(TimerControl), new FrameworkPropertyMetadata(false));
+
+        public bool IsVisibleFromElapsed { get { return timer.Elapsed; } }
+
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
             timer.StartLoop();
@@ -34,6 +40,11 @@ namespace TimerManager
         private void PauseButton_Click(object sender, RoutedEventArgs e)
         {
             timer.Pause();
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            ((ListBox)this.Parent).Items.Remove(this);
         }
     }
 }

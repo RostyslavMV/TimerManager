@@ -9,9 +9,13 @@
         RenderOptions.BitmapScalingMode="HighQuality"
         Background="{StaticResource BackgroundLightBrush}"
         Title="Timer Manager"
-        Height="450" Width="800">
+        Height="450" Width="800"
+        MinHeight="450" MinWidth="800">
     <!-- Main Grid -->
     <Grid>
+        <Grid.Resources>
+            <local:ElapsedToVisibilityConverter x:Key="ElapsedToVisibilityConverter" />
+        </Grid.Resources>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition />
@@ -20,7 +24,7 @@
             <ColumnDefinition Width="350"/>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <local:TimerListControl Grid.Row="1" x:Name="list"/>
+        <local:TimerListControl Grid.Row="1" x:Name="TimerList"/>
         <!-- Buttons Grid -->
         <Grid>
             <Grid.ColumnDefinitions>
@@ -29,18 +33,19 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Style="{StaticResource MainWindowsButton}" >
+            <Button Style="{StaticResource MainWindowsButton}" Click="Button_Click" >
                 <Image Source="/Images/add-timer.png" Margin="3" />
             </Button>
-            <Button Grid.Column ="1" Style="{StaticResource MainWindowsButton}">
+            <Button x:Name="OpenTimer" Grid.Column ="1" Style="{StaticResource MainWindowsButton}" Click="OpenTimer_Click">
                 <Image Source="/Images/see-timer.png" Margin="3"/>
             </Button>
-            <Button Grid.Column ="2" Style="{StaticResource MainWindowsButton}">
+            <Button x:Name="DeleteButton" Grid.Column ="2" Style="{StaticResource MainWindowsButton}" Click="DeleteButton_Click">
                 <Image Source="/Images/delete-timer.png" Margin="3"/>
             </Button>
-            <ToggleButton Background="White" BorderBrush="{StaticResource BackgroundLightBrush}" Grid.Column ="3">
+            <ToggleButton x:Name="DoNotDisturbButton" Background="White" BorderBrush="{StaticResource BackgroundLightBrush}" Grid.Column ="3" Checked="DoNotDisturbButton_Checked">
                 <Image Source="/Images/mute.png" Margin="3" />
             </ToggleButton>
         </Grid>
+        <local:TimerCreator VerticalAlignment="Top" Height="250" Grid.Column="1" Grid.Row="2" />
     </Grid>
 </Window>
