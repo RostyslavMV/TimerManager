@@ -60,13 +60,16 @@ namespace TimerManager
                 Minutes = 0;
             if (!Int32.TryParse(AlarmSeconds.Text, out Seconds))
                 Seconds = 0;
-            dateTime = AlarmDate.SelectedDate.Value;
-            dateTime.Add(new TimeSpan(Hours, Minutes, Seconds));
-            if (dateTime.CompareTo(DateTime.Now)>0)
+            if (AlarmDate.SelectedDate != null)
             {
-                AlarmClock alarmClock = new AlarmClock(dateTime);
-                alarmClock.parrentCollection = MainWindow.timers;
-                MainWindow.timers.Add(alarmClock);
+                dateTime = AlarmDate.SelectedDate.Value;
+                dateTime = dateTime.Add(new TimeSpan(Hours, Minutes, Seconds));
+                if (dateTime.CompareTo(DateTime.Now) > 0)
+                {
+                    AlarmClock alarmClock = new AlarmClock(dateTime);
+                    alarmClock.parrentCollection = MainWindow.timers;
+                    MainWindow.timers.Add(alarmClock);
+                }
             }
         }
     }

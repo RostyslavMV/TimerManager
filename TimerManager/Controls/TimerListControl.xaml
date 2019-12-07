@@ -7,17 +7,6 @@
              mc:Ignorable="d" 
              Background="{StaticResource BackgroundLightBrush}"
              HorizontalContentAlignment="Stretch"
-             d:DesignHeight="600" d:DesignWidth="350" BorderBrush="{x:Null}">
-    <ListBox.Resources>
-        <DataTemplate x:Key="TimerTemplate">
-            <local:TimerControl />
-        </DataTemplate>
-        <DataTemplate x:Key="AlarmClockTemplate">
-            <local:AlarmClockControl />
-        </DataTemplate>
-        <local:TimerTypeTemplateSelector x:Key="TimerTypeTemplateSelector" />
-    </ListBox.Resources>
-    <ItemsControl ItemTemplateSelector="{StaticResource TimerTypeTemplateSelector}">
-        
-    </ItemsControl>
+             d:DesignHeight="600" d:DesignWidth="350" BorderBrush="{x:Null}"
+             ItemTemplateSelector="{StaticResource TimerTypeTemplateSelector}">
 </ListBox>

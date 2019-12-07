@@ -14,6 +14,7 @@ namespace TimerManager
             Start = DateTime.Now;
             End = endDateTime;
             Total = End - Start;
+            current = Total;
             Index = CurrentIndex;
             CurrentIndex++;
             StartLoop();

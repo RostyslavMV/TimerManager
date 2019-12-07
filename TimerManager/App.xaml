@@ -14,6 +14,13 @@
                 <ResourceDictionary Source="Styles/Windows.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <local:ElapsedToVisibilityConverter x:Key="ElapsedToVisibilityConverter" />
+            <DataTemplate x:Key="TimerTemplate">
+                <local:TimerControl />
+            </DataTemplate>
+            <DataTemplate x:Key="AlarmClockTemplate">
+                <local:AlarmClockControl />
+            </DataTemplate>
+            <local:TimerTypeTemplateSelector x:Key="TimerTypeTemplateSelector" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

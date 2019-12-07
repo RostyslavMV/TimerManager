@@ -27,7 +27,7 @@ namespace TimerManager
 
         public TimeSpan Total { get; set; }
 
-        private TimeSpan current;
+        protected TimeSpan current;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
