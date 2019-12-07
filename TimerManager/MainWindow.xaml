@@ -33,10 +33,10 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Style="{StaticResource MainWindowsButton}" Click="Button_Click" >
+            <Button x:Name="AddTimerButton" Style="{StaticResource MainWindowsButton}" Click="AddTimerButton_Click" >
                 <Image Source="/Images/add-timer.png" Margin="3" />
             </Button>
-            <Button x:Name="OpenTimer" Grid.Column ="1" Style="{StaticResource MainWindowsButton}" Click="OpenTimer_Click">
+            <Button x:Name="OpenTimerButton" Grid.Column ="1" Style="{StaticResource MainWindowsButton}" Click="OpenTimer_Click">
                 <Image Source="/Images/see-timer.png" Margin="3"/>
             </Button>
             <Button x:Name="DeleteButton" Grid.Column ="2" Style="{StaticResource MainWindowsButton}" Click="DeleteButton_Click">

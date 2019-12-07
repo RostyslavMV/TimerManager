@@ -70,7 +70,7 @@ namespace TimerManager
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void AddTimerButton_Click(object sender, RoutedEventArgs e)
         {
 
         }
@@ -79,5 +79,6 @@ namespace TimerManager
         {
 
         }
+
     }
 }
