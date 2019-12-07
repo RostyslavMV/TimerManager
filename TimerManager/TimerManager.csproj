@@ -69,6 +69,7 @@
     </Compile>
     <Compile Include="Converters\ElapsedToVisibilityConverter.cs" />
     <Compile Include="Converters\TimerTypeToImageConverter.cs" />
+    <Compile Include="Converters\TimerTypeToStringConverter.cs" />
     <Compile Include="Timer.cs" />
     <Compile Include="TimerCollection.cs" />
     <Compile Include="Controls\TimerControl.xaml.cs">

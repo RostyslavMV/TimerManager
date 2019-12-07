@@ -23,6 +23,8 @@ namespace TimerManager
         public MainWindow()
         {
             InitializeComponent();
+            TimerCreator.Visibility = Visibility.Collapsed;
+            TimerView.Visibility = Visibility.Collapsed;
             dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 100);
             dispatcherTimer.Tick += TimerTick;
             dispatcherTimer.Start();
@@ -67,17 +69,20 @@ namespace TimerManager
 
         private void OpenTimer_Click(object sender, RoutedEventArgs e)
         {
-
+            TimerCreator.Visibility = Visibility.Collapsed;
+            TimerView.Visibility = Visibility.Visible;
         }
 
         private void AddTimerButton_Click(object sender, RoutedEventArgs e)
         {
-
+            TimerView.Visibility = Visibility.Collapsed;
+            TimerCreator.Visibility = Visibility.Visible;
         }
 
         private void TimerList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-
+            TimerCreator.Visibility = Visibility.Collapsed;
+            TimerView.Visibility = Visibility.Visible;
         }
 
     }

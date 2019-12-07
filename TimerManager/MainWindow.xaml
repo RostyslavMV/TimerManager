@@ -46,6 +46,7 @@
                 <Image Source="/Images/mute.png" Margin="3" />
             </ToggleButton>
         </Grid>
-        <local:TimerCreatorControl VerticalAlignment="Top" Height="250" Grid.Column="1" Grid.Row="2" />
+        <local:TimerCreatorControl x:Name="TimerCreator" VerticalAlignment="Top" Height="250" Grid.Column="1" Grid.Row="2" />
+        <local:TimerViewControl x:Name="TimerView" VerticalAlignment="Top" Height="250" Grid.Column="1" Grid.Row="2" />
     </Grid>
 </Window>
