@@ -36,6 +36,7 @@ namespace TimerManager
             {
                 if (timer.Elapsed && !timer.DeleteButtonIsShowed)
                 {
+                    TimerList.ScrollIntoView(timer);
                     timer.DeleteButtonIsShowed = true;
                     timer.IsVisibleFromElapsed = true;
                     if (!timers.DoNotDisturb)
@@ -70,6 +71,11 @@ namespace TimerManager
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TimerList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
 
         }

@@ -16,12 +16,18 @@ namespace TimerManager
 
         protected TimeSpan current;
 
+        private Uri soundUri1 = new Uri("../../Sounds/alarm-beep1.mp3", UriKind.RelativeOrAbsolute);
+        private Uri soundUri2 = new Uri("../../Sounds/alarm-beep2.mp3", UriKind.RelativeOrAbsolute);
+        private Uri soundUri3 = new Uri("../../Sounds/alarm-beep3.mp3", UriKind.RelativeOrAbsolute);
+
         #endregion
 
         #region Public Properties
 
         public MediaPlayer mediaPlayer = new MediaPlayer();
         public Uri SoundUri { get; set; }
+
+        public int SoundBeepIndex { get; set; }
 
         public static int CurrentIndex = 1;
 
@@ -74,14 +80,14 @@ namespace TimerManager
         /// Constructor with time string as parameter
         /// </summary>
         /// <param name="Time"></param>
-        public Timer(TimeSpan total, Uri soundUri)
+        public Timer(TimeSpan total, int soundUriIndex)
         {
             Total = total;
             Start = DateTime.Now;
             current = Total;
             Index = CurrentIndex;
             CurrentIndex++;
-            SoundUri = soundUri;
+            getSoundUri(soundUriIndex);
         }
 
         public Timer()
@@ -137,45 +143,27 @@ namespace TimerManager
             }
                
         }
-
-        public TimeSpan StringToTimeSpan(string Time)
+        protected void getSoundUri(int index)
         {
-            string[] PartsOfTime = Time.Split(':');
-            int Days = 0, Hours = 0, Minutes = 0, Seconds = 0;
-            TimeType tt = TimeType.Hours;
-            foreach (string Part in PartsOfTime)
+            switch (index)
             {
-                int AddValue = 0;
-                if (Part.EndsWith("y"))
-                {
-                    Int32.TryParse(Part.Substring(0, Part.Length - 1), out AddValue);
-                    Days += AddValue * 365;
-                }
-                else if (Part.EndsWith("d"))
-                {
-                    Int32.TryParse(Part.Substring(0, Part.Length - 1), out AddValue);
-                    Days += AddValue;
-                }
-                else if (tt == TimeType.Hours)
-                {
-                    Int32.TryParse(Part.Substring(0, Part.Length), out AddValue);
-                    Hours += AddValue;
-                    tt = TimeType.Minutes;
-                }
-                else if (tt == TimeType.Minutes)
-                {
-                    Int32.TryParse(Part.Substring(0, Part.Length), out AddValue);
-                    Minutes += AddValue;
-                    tt = TimeType.Seconds;
-                }
-                else if (tt == TimeType.Seconds)
-                {
-                    Int32.TryParse(Part.Substring(0, Part.Length), out AddValue);
-                    Seconds += AddValue;
-                    tt = TimeType.Seconds;
-                }
+                case 0:
+                    SoundUri = soundUri1;
+                    SoundBeepIndex = index + 1;
+                    break;
+                case 1:
+                    SoundUri = soundUri2;
+                    SoundBeepIndex = index + 1;
+                    break;
+                case 2:
+                    SoundUri = soundUri3;
+                    SoundBeepIndex = index + 1;
+                    break;
+                default:
+                    SoundUri = soundUri1;
+                    SoundBeepIndex = index + 1;
+                    break;
             }
-            return new TimeSpan(Days, Hours, Minutes, Seconds);
         }
         #endregion
 

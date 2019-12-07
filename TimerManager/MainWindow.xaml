@@ -24,7 +24,7 @@
             <ColumnDefinition Width="350"/>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <local:TimerListControl Grid.Row="1" x:Name="TimerList"/>
+        <local:TimerListControl Grid.Row="1" x:Name="TimerList" SelectionChanged="TimerList_SelectionChanged"/>
         <!-- Buttons Grid -->
         <Grid>
             <Grid.ColumnDefinitions>

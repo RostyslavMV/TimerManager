@@ -14,6 +14,7 @@
                 <ResourceDictionary Source="Styles/Windows.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <local:ElapsedToVisibilityConverter x:Key="ElapsedToVisibilityConverter" />
+            <local:TimerTypeToImageConverter x:Key="TimerTypeToImageConverter" />
             <DataTemplate x:Key="TimerTemplate">
                 <local:TimerControl />
             </DataTemplate>

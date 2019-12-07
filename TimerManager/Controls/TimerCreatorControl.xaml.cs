@@ -37,25 +37,6 @@ namespace TimerManager
                 AddAlarmClockWithUserParameters();
         }
 
-        private Uri getSoundUri()
-        {
-            switch (Sound.SelectedIndex)
-            {
-                case 0:
-                    return soundUri1;
-                    break;
-                case 1:
-                    return soundUri2;
-                    break;
-                case 2:
-                    return soundUri3;
-                    break;
-                default:
-                    return soundUri1;
-                    break;
-            }
-        }
-
         private void AddTimerWithUserParameters()
         {
             if (!Int32.TryParse(TimerDays.Text, out Days))
@@ -68,7 +49,7 @@ namespace TimerManager
                 Seconds = 0;
             if (Days != 0 || Hours != 0 || Minutes != 0 || Seconds != 0)
             {
-                Timer timer = new Timer(new TimeSpan(Days, Hours, Minutes, Seconds),getSoundUri());
+                Timer timer = new Timer(new TimeSpan(Days, Hours, Minutes, Seconds), Sound.SelectedIndex);
                 timer.parrentCollection = MainWindow.timers;
                 MainWindow.timers.Add(timer);
             }
@@ -88,7 +69,7 @@ namespace TimerManager
                 dateTime = dateTime.Add(new TimeSpan(Hours, Minutes, Seconds));
                 if (dateTime.CompareTo(DateTime.Now) > 0)
                 {
-                    AlarmClock alarmClock = new AlarmClock(dateTime, getSoundUri());
+                    AlarmClock alarmClock = new AlarmClock(dateTime, Sound.SelectedIndex);
                     alarmClock.parrentCollection = MainWindow.timers;
                     MainWindow.timers.Add(alarmClock);
                 }
