@@ -29,6 +29,7 @@ namespace TimerManager
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
+            alarmClock.mediaPlayer.Stop();
             alarmClock.parrentCollection.Remove(alarmClock);
         }
     }

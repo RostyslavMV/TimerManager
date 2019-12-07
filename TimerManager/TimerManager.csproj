@@ -169,8 +169,10 @@
     <Resource Include="Images\delete-cross.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Sounds\alarm-beep2.mp3" />
+    <Content Include="Sounds\alarm-beep3.mp3" />
     <Resource Include="Images\alarm-clock.png" />
-    <Content Include="Sounds\alarm-beep.mp3" />
+    <Content Include="Sounds\alarm-beep1.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

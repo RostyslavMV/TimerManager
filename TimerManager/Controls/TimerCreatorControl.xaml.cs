@@ -21,6 +21,9 @@ namespace TimerManager
     public partial class TimerCreatorControl : UserControl
     {
         int Days, Hours, Minutes, Seconds;
+        Uri soundUri1 = new Uri("../../Sounds/alarm-beep1.mp3", UriKind.RelativeOrAbsolute);
+        Uri soundUri2 = new Uri("../../Sounds/alarm-beep2.mp3", UriKind.RelativeOrAbsolute);
+        Uri soundUri3 = new Uri("../../Sounds/alarm-beep3.mp3", UriKind.RelativeOrAbsolute);
         public TimerCreatorControl()
         {
             InitializeComponent();
@@ -32,6 +35,25 @@ namespace TimerManager
                 AddTimerWithUserParameters();
             else if (Tabs.SelectedIndex == 1)
                 AddAlarmClockWithUserParameters();
+        }
+
+        private Uri getSoundUri()
+        {
+            switch (Sound.SelectedIndex)
+            {
+                case 0:
+                    return soundUri1;
+                    break;
+                case 1:
+                    return soundUri2;
+                    break;
+                case 2:
+                    return soundUri3;
+                    break;
+                default:
+                    return soundUri1;
+                    break;
+            }
         }
 
         private void AddTimerWithUserParameters()
@@ -46,7 +68,7 @@ namespace TimerManager
                 Seconds = 0;
             if (Days != 0 || Hours != 0 || Minutes != 0 || Seconds != 0)
             {
-                Timer timer = new Timer(new TimeSpan(Days, Hours, Minutes, Seconds));
+                Timer timer = new Timer(new TimeSpan(Days, Hours, Minutes, Seconds),getSoundUri());
                 timer.parrentCollection = MainWindow.timers;
                 MainWindow.timers.Add(timer);
             }
@@ -66,7 +88,7 @@ namespace TimerManager
                 dateTime = dateTime.Add(new TimeSpan(Hours, Minutes, Seconds));
                 if (dateTime.CompareTo(DateTime.Now) > 0)
                 {
-                    AlarmClock alarmClock = new AlarmClock(dateTime);
+                    AlarmClock alarmClock = new AlarmClock(dateTime, getSoundUri());
                     alarmClock.parrentCollection = MainWindow.timers;
                     MainWindow.timers.Add(alarmClock);
                 }

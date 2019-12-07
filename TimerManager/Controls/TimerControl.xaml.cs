@@ -38,7 +38,8 @@ namespace TimerManager
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            timer.parrentCollection.Remove(timer);
+            timer.mediaPlayer.Stop();
+            timer.parrentCollection.Remove(timer);    
         }
     }
 }

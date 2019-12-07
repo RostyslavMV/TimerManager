@@ -39,24 +39,23 @@ namespace TimerManager
                     timer.DeleteButtonIsShowed = true;
                     timer.IsVisibleFromElapsed = true;
                     if (!timers.DoNotDisturb)
-                        Task.Run(() =>
-                        {
-                            MediaPlayer mediaPlayer = new MediaPlayer();
-                            mediaPlayer.Open(new Uri("../../Sounds/alarm-beep.mp3", UriKind.RelativeOrAbsolute));
-                            mediaPlayer.Volume = 1;
-                            mediaPlayer.Play();
-                            var result = MessageBox.Show("Timer " + timer.Index + " elapsed", "Timer manager", MessageBoxButton.OK, MessageBoxImage.Information);
-                            if (result == MessageBoxResult.OK)
-                                mediaPlayer.Stop();
-                        });
+                    {
+                        timer.mediaPlayer.Open(timer.SoundUri);
+                        timer.mediaPlayer.Volume = 1;
+                        timer.mediaPlayer.Play();
+                    }
                 }
             }
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            timers.Remove(TimerList.SelectedItem as Timer);
-            //TODO fix
+            Timer timer = TimerList.SelectedItem as Timer;
+            if (timer != null)
+            {
+                timer.mediaPlayer.Stop();
+                timers.Remove(timer);
+            }
         }
 
         private void DoNotDisturbButton_Click(object sender, RoutedEventArgs e)

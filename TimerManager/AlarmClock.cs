@@ -9,7 +9,7 @@ namespace TimerManager
     public class AlarmClock : Timer
     {
         public new DateTime End { get; set; }
-        public AlarmClock(DateTime endDateTime)
+        public AlarmClock(DateTime endDateTime,Uri soundUri)
         {
             Start = DateTime.Now;
             End = endDateTime;
@@ -17,6 +17,7 @@ namespace TimerManager
             current = Total;
             Index = CurrentIndex;
             CurrentIndex++;
+            SoundUri = soundUri;
             StartLoop();
         }
     }

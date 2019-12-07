@@ -6,15 +6,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 
 namespace TimerManager
 {
     public class Timer : INotifyPropertyChanged
     {
         #region Private Properties
+
+        protected TimeSpan current;
+
         #endregion
 
         #region Public Properties
+
+        public MediaPlayer mediaPlayer = new MediaPlayer();
+        public Uri SoundUri { get; set; }
 
         public static int CurrentIndex = 1;
 
@@ -26,8 +33,6 @@ namespace TimerManager
         public DateTime Start { get; set; }
 
         public TimeSpan Total { get; set; }
-
-        protected TimeSpan current;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -69,13 +74,14 @@ namespace TimerManager
         /// Constructor with time string as parameter
         /// </summary>
         /// <param name="Time"></param>
-        public Timer(TimeSpan total)
+        public Timer(TimeSpan total, Uri soundUri)
         {
             Total = total;
             Start = DateTime.Now;
             current = Total;
             Index = CurrentIndex;
             CurrentIndex++;
+            SoundUri = soundUri;
         }
 
         public Timer()
@@ -84,7 +90,7 @@ namespace TimerManager
             Start = DateTime.Now;
             current = Total;
             Index = CurrentIndex;
-            CurrentIndex++;
+            SoundUri = new Uri("../../Sounds/alarm-beep1.mp3", UriKind.RelativeOrAbsolute);
         }
 
         #endregion

@@ -77,12 +77,16 @@
             </Grid.ColumnDefinitions>
             <StackPanel>
                 <TextBlock Margin="10 0" FontSize="20" Text="Sound" />
-                <ComboBox x:Name="Sound" Background="{StaticResource LogoLigthBlueBrush}" Margin="10 0" Height="30" >
-                    <ComboBox.ItemContainerStyle>
-                        <Style TargetType="ComboBoxItem">
-                            <Setter Property="Background" Value="{StaticResource LogoLigthBlueBrush}" />
-                        </Style>
-                    </ComboBox.ItemContainerStyle>
+                <ComboBox x:Name="Sound" Background="{StaticResource LogoLigthBlueBrush}" Margin="10 0" Height="30" SelectedIndex="0"  >
+                    <ComboBoxItem>
+                        <TextBlock Text="Beep sound 1" FontSize="20" />
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <TextBlock Text="Beep sound 2" FontSize="20" />
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <TextBlock Text="Beep sound 3" FontSize="20" />
+                    </ComboBoxItem>
                 </ComboBox>
             </StackPanel>
             <Button x:Name="AddButton" Grid.Column="1" Margin="20 10" Background="{StaticResource LogoLigthBlueBrush}" FontSize="20"  Content ="Add" Click="AddButton_Click" />
