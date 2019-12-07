@@ -16,6 +16,8 @@ namespace TimerManager
 
         #region Public Properties
 
+        public static int CurrentIndex = 1;
+
         public Collection<Timer> parrentCollection;
         public bool DeleteButtonIsShowed { get; set; } = false;
 
@@ -67,12 +69,22 @@ namespace TimerManager
         /// Constructor with time string as parameter
         /// </summary>
         /// <param name="Time"></param>
-        public Timer(TimeSpan total, int index)
+        public Timer(TimeSpan total)
         {
             Total = total;
             Start = DateTime.Now;
             current = Total;
-            Index = index;
+            Index = CurrentIndex;
+            CurrentIndex++;
+        }
+
+        public Timer()
+        {
+            Total = default;
+            Start = DateTime.Now;
+            current = Total;
+            Index = CurrentIndex;
+            CurrentIndex++;
         }
 
         #endregion

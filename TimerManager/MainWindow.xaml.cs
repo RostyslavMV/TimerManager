@@ -9,13 +9,17 @@ using System.Windows.Threading;
 
 namespace TimerManager
 {
+
+
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        TimerCollection timers = new TimerCollection();
+        public static TimerCollection timers = new TimerCollection();
         DispatcherTimer dispatcherTimer = new DispatcherTimer();
+
         public MainWindow()
         {
             InitializeComponent();

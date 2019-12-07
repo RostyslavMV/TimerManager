@@ -60,16 +60,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ElapsedToVisibilityConverter.cs" />
+    <Compile Include="AlarmClock.cs" />
+    <Compile Include="Converters\ElapsedToVisibilityConverter.cs" />
     <Compile Include="Timer.cs" />
     <Compile Include="TimerCollection.cs" />
-    <Compile Include="TimerControl.xaml.cs">
+    <Compile Include="Controls\TimerControl.xaml.cs">
       <DependentUpon>TimerControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TimerCreator.xaml.cs">
-      <DependentUpon>TimerCreator.xaml</DependentUpon>
+    <Compile Include="Controls\TimerCreatorControl.xaml.cs">
+      <DependentUpon>TimerCreatorControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TimerListControl.xaml.cs">
+    <Compile Include="Controls\TimerListControl.xaml.cs">
       <DependentUpon>TimerListControl.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
@@ -100,15 +101,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="TimerControl.xaml">
+    <Page Include="Controls\TimerControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TimerCreator.xaml">
+    <Page Include="Controls\TimerCreatorControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TimerListControl.xaml">
+    <Page Include="Controls\TimerListControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
