@@ -52,6 +52,7 @@ namespace TimerManager
                 Timer timer = new Timer(new TimeSpan(Days, Hours, Minutes, Seconds), Sound.SelectedIndex);
                 timer.parrentCollection = MainWindow.timers;
                 MainWindow.timers.Add(timer);
+                MainWindow.ListBox.SelectedItem = timer;
             }
         }
         private void AddAlarmClockWithUserParameters()
@@ -72,6 +73,7 @@ namespace TimerManager
                     AlarmClock alarmClock = new AlarmClock(dateTime, Sound.SelectedIndex);
                     alarmClock.parrentCollection = MainWindow.timers;
                     MainWindow.timers.Add(alarmClock);
+                    MainWindow.ListBox.SelectedItem = alarmClock;
                 }
             }
         }

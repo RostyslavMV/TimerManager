@@ -19,6 +19,7 @@ namespace TimerManager
     {
         public static TimerCollection timers = new TimerCollection();
         DispatcherTimer dispatcherTimer = new DispatcherTimer();
+        public static TimerListControl ListBox;
 
         public MainWindow()
         {
@@ -29,6 +30,7 @@ namespace TimerManager
             dispatcherTimer.Tick += TimerTick;
             dispatcherTimer.Start();
             TimerList.ItemsSource = timers;
+            ListBox = TimerList;
         }
 
         private void TimerTick(object sender, EventArgs e)
