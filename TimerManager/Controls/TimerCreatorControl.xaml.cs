@@ -44,19 +44,30 @@ namespace TimerManager
                 Minutes = 0;
             if (!Int32.TryParse(TimerSeconds.Text, out Seconds))
                 Seconds = 0;
-            Timer timer = new Timer(new TimeSpan(Days, Hours, Minutes, Seconds));
-            timer.parrentCollection = MainWindow.timers;
-            MainWindow.timers.Add(timer);
+            if (Days != 0 || Hours != 0 || Minutes != 0 || Seconds != 0)
+            {
+                Timer timer = new Timer(new TimeSpan(Days, Hours, Minutes, Seconds));
+                timer.parrentCollection = MainWindow.timers;
+                MainWindow.timers.Add(timer);
+            }
         }
         private void AddAlarmClockWithUserParameters()
         {
+            DateTime dateTime;
             if (!Int32.TryParse(AlarmHours.Text, out Hours))
                 Hours = 0;
             if (!Int32.TryParse(AlarmMinutes.Text, out Minutes))
                 Minutes = 0;
             if (!Int32.TryParse(AlarmSeconds.Text, out Seconds))
                 Seconds = 0;
-           //TODO continue later
+            dateTime = AlarmDate.SelectedDate.Value;
+            dateTime.Add(new TimeSpan(Hours, Minutes, Seconds));
+            if (dateTime.CompareTo(DateTime.Now)>0)
+            {
+                AlarmClock alarmClock = new AlarmClock(dateTime);
+                alarmClock.parrentCollection = MainWindow.timers;
+                MainWindow.timers.Add(alarmClock);
+            }
         }
     }
 }

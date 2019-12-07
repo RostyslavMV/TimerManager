@@ -8,8 +8,7 @@ namespace TimerManager
 {
     public class AlarmClock : Timer
     {
-        public new DateTime End;
-        
+        public new DateTime End { get; set; }
         public AlarmClock(DateTime endDateTime)
         {
             Start = DateTime.Now;

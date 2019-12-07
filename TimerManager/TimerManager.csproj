@@ -61,6 +61,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AlarmClock.cs" />
+    <Compile Include="Controls\AlarmClockControl.xaml.cs">
+      <DependentUpon>AlarmClockControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Converters\ElapsedToVisibilityConverter.cs" />
     <Compile Include="Timer.cs" />
     <Compile Include="TimerCollection.cs" />
@@ -73,6 +76,10 @@
     <Compile Include="Controls\TimerListControl.xaml.cs">
       <DependentUpon>TimerListControl.xaml</DependentUpon>
     </Compile>
+    <Page Include="Controls\AlarmClockControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
