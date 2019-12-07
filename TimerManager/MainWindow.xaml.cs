@@ -77,12 +77,14 @@ namespace TimerManager
 
         private void AddTimerButton_Click(object sender, RoutedEventArgs e)
         {
+            TimerList.SelectedItem = null;
             TimerView.Visibility = Visibility.Collapsed;
-            TimerCreator.Visibility = Visibility.Visible;
+            TimerCreator.Visibility = Visibility.Visible; 
         }
 
         private void TimerList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
+            TimerView.DataContext = TimerList.SelectedItem;
             TimerCreator.Visibility = Visibility.Collapsed;
             TimerView.Visibility = Visibility.Visible;
         }
