@@ -1,4 +1,4 @@
-# Timer-Manager
+# TimerManager
 Lab 2 OOP (Timer manager)
 
 C# WPF
