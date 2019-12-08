@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Media;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Media;
 using System.Windows.Threading;
 
 namespace TimerManager
@@ -81,7 +77,7 @@ namespace TimerManager
         {
             TimerList.SelectedItem = null;
             TimerView.Visibility = Visibility.Collapsed;
-            TimerCreator.Visibility = Visibility.Visible; 
+            TimerCreator.Visibility = Visibility.Visible;
         }
 
         private void TimerList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)

@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 
 namespace TimerManager
 {
     public class TimerCollection : ObservableCollection<Timer>
     {
-      
+
 
         public bool DoNotDisturb { get; set; } = false;
-        
+
         public TimerCollection()
         {
 
@@ -16,7 +15,7 @@ namespace TimerManager
 
         internal void Update()
         {
-            foreach(Timer t in this)
+            foreach (Timer t in this)
             {
                 t.Update();
             }
