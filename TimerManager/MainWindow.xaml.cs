@@ -61,6 +61,8 @@ namespace TimerManager
                 timer.mediaPlayer.Stop();
                 timers.Remove(timer);
             }
+            if (timers.Count() == 0)
+                TimerView.Visibility = Visibility.Collapsed;
         }
 
         private void DoNotDisturbButton_Click(object sender, RoutedEventArgs e)

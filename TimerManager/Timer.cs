@@ -20,6 +20,10 @@ namespace TimerManager
         private Uri soundUri2 = new Uri("../../Sounds/alarm-beep2.mp3", UriKind.RelativeOrAbsolute);
         private Uri soundUri3 = new Uri("../../Sounds/alarm-beep3.mp3", UriKind.RelativeOrAbsolute);
 
+        private bool elapsed;
+
+        private DateTime end;
+
         #endregion
 
         #region Public Properties
@@ -38,6 +42,15 @@ namespace TimerManager
 
         public DateTime Start { get; set; }
 
+        public DateTime End {
+            get => DateTime.Now + Total;
+            set
+            {
+                end = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("End"));
+            }
+        }
+
         public TimeSpan Total { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -54,14 +67,13 @@ namespace TimerManager
         }
         public TimeSpan Loop => DateTime.Now - Start;
 
-        public TimeSpan End = new TimeSpan(0, 0, 0);
+        public TimeSpan ZeroTimeSpan = new TimeSpan(0, 0, 0);
 
-        public bool Elapsed => Current <= End;
+        public bool Elapsed => Current <= ZeroTimeSpan;
 
-        private bool elapsed;
         public bool IsVisibleFromElapsed
         {
-            get => Elapsed;
+            get => elapsed;
             set
             {
                 elapsed = Elapsed;
@@ -141,7 +153,8 @@ namespace TimerManager
                 else
                     Current = new TimeSpan(0, 0, 0);
             }
-               
+            else if (!IsTicking)
+                End = DateTime.Now + Total;         
         }
         protected void getSoundUri(int index)
         {

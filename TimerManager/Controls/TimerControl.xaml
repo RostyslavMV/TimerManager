@@ -33,8 +33,8 @@
         </Grid.ColumnDefinitions>
         <Border Background="Red" Width="5"/>
         <StackPanel Grid.Column="1">
-            <Image Grid.Column="1" Grid.Row="0" Source="/Images/timer.png" Margin="1" Height="35" VerticalAlignment="Center"/>
-            <TextBlock Grid.Column="1" Grid.Row="1" x:Name="TimerNumber" Margin="1" FontSize="20" Text="{Binding Index, FallbackValue = 999}" VerticalAlignment="Center" HorizontalAlignment="Center" />
+            <Image Source="/Images/timer.png" Margin="1" Height="35" VerticalAlignment="Center"/>
+            <TextBlock x:Name="TimerNumber" Margin="1" FontSize="20" Text="{Binding Index, FallbackValue = 999}" VerticalAlignment="Center" HorizontalAlignment="Center" />
         </StackPanel>
         <Viewbox Grid.Column="2">
             <TextBlock  x:Name="Time" Margin="1 1" Text="{Binding Current, StringFormat={}{0:dd}:{0:hh}:{0:mm}:{0:ss}}" VerticalAlignment="Center" HorizontalAlignment="Center"  Style="{StaticResource animated}" Background="White"/>

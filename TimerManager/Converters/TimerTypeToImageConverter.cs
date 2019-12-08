@@ -1,5 +1,7 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Globalization;
+using System.Windows;
 using System.Windows.Data;
 using System.Windows.Media.Imaging;
 
@@ -11,6 +13,8 @@ namespace TimerManager
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            if ((bool)(DesignerProperties.IsInDesignModeProperty.GetMetadata(typeof(DependencyObject)).DefaultValue))
+                return null;
             BitmapImage bmp = new BitmapImage();
             bmp.BeginInit();
             if (value is AlarmClock)
